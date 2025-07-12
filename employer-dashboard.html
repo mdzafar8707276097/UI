@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Dashboard - Gulf Jobs Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Gulf<span class="highlight">Jobs</span></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="jobs.html" class="nav-link">Find Jobs</a></li>
+                <li><a href="post-job.html" class="nav-link">Post a Job</a></li>
+                <li><a href="#" class="nav-link login-btn" onclick="logout()">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="dashboard-nav">
+                <li><a href="#overview" class="active"><i class="fas fa-chart-line"></i> Overview</a></li>
+                <li><a href="#post-job"><i class="fas fa-plus-circle"></i> Post Job</a></li>
+                <li><a href="#my-listings"><i class="fas fa-list"></i> My Listings</a></li>
+                <li><a href="#applicants"><i class="fas fa-users"></i> Applicants</a></li>
+                <li><a href="#messages"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="#notifications"><i class="fas fa-bell"></i> Notifications</a></li>
+                <!-- Hidden section - not shown in public navigation -->
+                <li style="display: none;"><a href="#overseas-hiring"><i class="fas fa-globe"></i> Overseas Hiring (Coming Soon)</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section">
+                <div class="dashboard-header">
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome back, Tech Innovations LLC</p>
+                </div>
+
+                <div class="dashboard-cards">
+                    <div class="dashboard-card">
+                        <h3>8</h3>
+                        <p>Active Job Listings</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>156</h3>
+                        <p>Total Applications</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>23</h3>
+                        <p>Interviews Scheduled</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>12</h3>
+                        <p>Candidates Hired</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-section">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>New Application Received</h4>
+                                <p>Ahmed Hassan applied for Senior Software Engineer position</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Interview Completed</h4>
+                                <p>Interview with Sarah Johnson for Frontend Developer position</p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Job Posted</h4>
+                                <p>DevOps Engineer position has been published</p>
+                                <span class="activity-time">3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Post Job Section -->
+            <section id="post-job" class="dashboard-section" style="display: none;">
+                <div class="dashboard-header">
+                    <h1>Post a New Job</h1>
+                    <p>Create a job listing to attract top talent</p>
+                </div>
+
+                <div class="dashboard-section">
+                    <form id="job-posting-form">
+                        <div class="form-group">
+                            <label for="job-title">Job Title</label>
+                            <input type="text" id="job-title" required placeholder="e.g. Senior Software Engineer">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="job-category">Job Category</label>
+                            <select id="job-category" required>
+                                <option value="">Select Category</option>
+                                <option value="it">IT & Technology</option>
+                                <option value="construction">Construction</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="admin">Administration</option>
+                                <option value="oil-gas">Oil & Gas</option>
+                                <option value="hospitality">Hospitality</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="job-type">Job Type</label>
+                            <select id="job-type" required>
+                                <option value="">Select Type</option>
+                                <option value="full-time">Full-time</option>
+                                <option value="part-time">Part-time</option>
+                                <option value="contract">Contract</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <select id="location" required>
+                                <option value="">Select Location</option>
+                                <option value="dubai">Dubai, UAE</option>
+                                <option value="abu-dhabi">Abu Dhabi, UAE</option>
+                                <option value="riyadh">Riyadh, Saudi Arabia</option>
+                                <option value="doha">Doha, Qatar</option>
+                                <option value="kuwait">Kuwait City, Kuwait</option>
+                                <option value="muscat">Muscat, Oman</option>
+                                <option value="manama">Manama, Bahrain</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="salary-min">Minimum Salary</label>
+                            <input type="number" id="salary-min" placeholder="e.g. 15000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="salary-max">Maximum Salary</label>
+                            <input type="number" id="salary-max" placeholder="e.g. 25000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Required Experience</label>
+                            <select id="experience">
+                                <option value="">Select Experience</option>
+                                <option value="0-1">0-1 years</option>
+                                <option value="2-5">2-5 years</option>
+                                <option value="6-10">6-10 years</option>
+                                <option value="10+">10+ years</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="job-description">Job Description</label>
+                            <textarea id="job-description" rows="8" required placeholder="Describe the role, responsibilities, and requirements..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skills">Required Skills (comma-separated)</label>
+                            <input type="text" id="skills" placeholder="e.g. React.js, Node.js, AWS, MongoDB">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="benefits">Benefits</label>
+                            <textarea id="benefits" rows="4" placeholder="Health insurance, flight tickets, visa sponsorship..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="application-deadline">Application Deadline</label>
+                            <input type="date" id="application-deadline">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Post Job</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- My Listings Section -->
+            <section id="my-listings" class="dashboard-section" style="display: none;">
+                <div class="dashboard-header">
+                    <h1>My Job Listings</h1>
+                    <p>Manage your active and past job postings</p>
+                </div>
+
+                <div class="listings-table">
+                    <table class="applications-table">
+                        <thead>
+                            <tr>
+                                <th>Job Title</th>
+                                <th>Category</th>
+                                <th>Posted Date</th>
+                                <th>Applications</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Senior Software Engineer</td>
+                                <td>IT & Technology</td>
+                                <td>2024-01-10</td>
+                                <td>45</td>
+                                <td><span class="status-badge status-applied">Active</span></td>
+                                <td>
+                                    <button class="btn btn-secondary">Edit</button>
+                                    <button class="btn btn-secondary">Pause</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Frontend Developer</td>
+                                <td>IT & Technology</td>
+                                <td>2024-01-08</td>
+                                <td>32</td>
+                                <td><span class="status-badge status-applied">Active</span></td>
+                                <td>
+                                    <button class="btn btn-secondary">Edit</button>
+                                    <button class="btn btn-secondary">Pause</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>DevOps Engineer</td>
+                                <td>IT & Technology</td>
+                                <td>2024-01-05</td>
+                                <td>28</td>
+                                <td><span class="status-badge status-applied">Active</span></td>
+                                <td>
+                                    <button class="btn btn-secondary">Edit</button>
+                                    <button class="btn btn-secondary">Pause</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Backend Developer</td>
+                                <td>IT & Technology</td>
+                                <td>2024-01-01</td>
+                                <td>51</td>
+                                <td><span class="status-badge status-selected">Filled</span></td>
+                                <td>
+                                    <button class="btn btn-secondary">View</button>
+                                    <button class="btn btn-secondary">Repost</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Applicants Section -->
+            <section id="applicants" class="dashboard-section" style="display: none;">
+                <div class="dashboard-header">
+                    <h1>Applicants</h1>
+                    <p>Review and manage job applicants</p>
+                </div>
+
+                <div class="applicants-filters">
+                    <select id="job-filter">
+                        <option value="">All Jobs</option>
+                        <option value="senior-software-engineer">Senior Software Engineer</option>
+                        <option value="frontend-developer">Frontend Developer</option>
+                        <option value="devops-engineer">DevOps Engineer</option>
+                    </select>
+                    <select id="status-filter">
+                        <option value="">All Status</option>
+                        <option value="new">New</option>
+                        <option value="reviewed">Reviewed</option>
+                        <option value="interview">Interview</option>
+                        <option value="hired">Hired</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <select id="experience-filter">
+                        <option value="">All Experience</option>
+                        <option value="0-2">0-2 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="6-10">6-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                </div>
+
+                <div class="applicants-table">
+                    <table class="applications-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Experience</th>
+                                <th>Applied Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="applicant-info">
+                                        <strong>Ahmed Hassan</strong>
+                                        <span>ahmed.hassan@email.com</span>
+                                    </div>
+                                </td>
+                                <td>Senior Software Engineer</td>
+                                <td>7 years</td>
+                                <td>2024-01-15</td>
+                                <td><span class="status-badge status-applied">New</span></td>
+                                <td>
+                                    <button class="btn btn-primary">View Profile</button>
+                                    <button class="btn btn-secondary">Message</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="applicant-info">
+                                        <strong>Sarah Johnson</strong>
+                                        <span>sarah.johnson@email.com</span>
+                                    </div>
+                                </td>
+                                <td>Frontend Developer</td>
+                                <td>4 years</td>
+                                <td>2024-01-14</td>
+                                <td><span class="status-badge status-interview">Interview</span></td>
+                                <td>
+                                    <button class="btn btn-primary">View Profile</button>
+                                    <button class="btn btn-secondary">Message</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="applicant-info">
+                                        <strong>Mohammed Ali</strong>
+                                        <span>mohammed.ali@email.com</span>
+                                    </div>
+                                </td>
+                                <td>DevOps Engineer</td>
+                                <td>6 years</td>
+                                <td>2024-01-13</td>
+                                <td><span class="status-badge status-selected">Hired</span></td>
+                                <td>
+                                    <button class="btn btn-primary">View Profile</button>
+                                    <button class="btn btn-secondary">Message</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="applicant-info">
+                                        <strong>Fatima Al-Zahra</strong>
+                                        <span>fatima.alzahra@email.com</span>
+                                    </div>
+                                </td>
+                                <td>Senior Software Engineer</td>
+                                <td>5 years</td>
+                                <td>2024-01-12</td>
+                                <td><span class="status-badge status-applied">Reviewed</span></td>
+                                <td>
+                                    <button class="btn btn-primary">View Profile</button>
+                                    <button class="btn btn-secondary">Message</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messages" class="dashboard-section" style="display: none;">
+                <div class="dashboard-header">
+                    <h1>Messages</h1>
+                    <p>Communicate with job applicants</p>
+                </div>
+
+                <div class="messages-container">
+                    <div class="messages-list">
+                        <div class="message-item active">
+                            <div class="message-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="message-content">
+                                <h4>Ahmed Hassan</h4>
+                                <p>Thank you for considering my application...</p>
+                                <span class="message-time">10:30 AM</span>
+                            </div>
+                        </div>
+                        <div class="message-item">
+                            <div class="message-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="message-content">
+                                <h4>Sarah Johnson</h4>
+                                <p>I'm available for the interview tomorrow...</p>
+                                <span class="message-time">Yesterday</span>
+                            </div>
+                        </div>
+                        <div class="message-item">
+                            <div class="message-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="message-content">
+                                <h4>Mohammed Ali</h4>
+                                <p>I accept the job offer. Looking forward...</p>
+                                <span class="message-time">2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message-chat">
+                        <div class="chat-header">
+                            <h3>Ahmed Hassan</h3>
+                            <span>Senior Software Engineer Applicant</span>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="chat-message received">
+                                <p>Thank you for considering my application for the Senior Software Engineer position. I'm very interested in joining your team.</p>
+                                <span class="message-time">10:30 AM</span>
+                            </div>
+                            <div class="chat-message sent">
+                                <p>Hi Ahmed, thank you for your interest. We'd like to schedule an interview with you. Are you available next week?</p>
+                                <span class="message-time">11:15 AM</span>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type your message...">
+                            <button class="btn btn-primary">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notifications Section -->
+            <section id="notifications" class="dashboard-section" style="display: none;">
+                <div class="dashboard-header">
+                    <h1>Notifications</h1>
+                    <p>Stay updated with applications and system alerts</p>
+                </div>
+
+                <div class="notifications-list">
+                    <div class="notification-item unread">
+                        <div class="notification-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="notification-content">
+                            <h4>New Application</h4>
+                            <p>Ahmed Hassan has applied for Senior Software Engineer position</p>
+                            <span class="notification-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon">
+                            <i class="fas fa-calendar-times"></i>
+                        </div>
+                        <div class="notification-content">
+                            <h4>Interview Cancelled</h4>
+                            <p>Sarah Johnson has requested to reschedule the interview</p>
+                            <span class="notification-time">1 day ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="notification-content">
+                            <h4>Job Listing Expiring</h4>
+                            <p>Your DevOps Engineer job listing will expire in 3 days</p>
+                            <span class="notification-time">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hidden Overseas Hiring Section -->
+            <section id="overseas-hiring" class="dashboard-section" style="display: none;">
+                <div class="dashboard-header">
+                    <h1>Overseas Hiring</h1>
+                    <p>Comprehensive visa and immigration services for international recruitment</p>
+                </div>
+
+                <div class="coming-soon-container">
+                    <div class="coming-soon-content">
+                        <i class="fas fa-globe icon-large"></i>
+                        <h2>Coming Soon</h2>
+                        <p>We're working on bringing you comprehensive overseas hiring services including:</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Visa processing and sponsorship</li>
+                            <li><i class="fas fa-check"></i> Work permit applications</li>
+                            <li><i class="fas fa-check"></i> Immigration documentation</li>
+                            <li><i class="fas fa-check"></i> Relocation assistance</li>
+                            <li><i class="fas fa-check"></i> Legal compliance support</li>
+                        </ul>
+                        <button class="btn btn-primary">Get Notified When Available</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize employer dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set user as logged in employer
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userEmail', 'hr@techinnovations.ae');
+            localStorage.setItem('userType', 'employer');
+            
+            // Show overview section by default
+            showDashboardSection('overview');
+        });
+
+        // Job posting form submission
+        document.getElementById('job-posting-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (validateForm('job-posting-form')) {
+                alert('Job posted successfully!');
+                // Reset form
+                document.getElementById('job-posting-form').reset();
+                // Switch to listings view
+                showDashboardSection('my-listings');
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Filter functions
+        function filterApplicants() {
+            const jobFilter = document.getElementById('job-filter').value;
+            const statusFilter = document.getElementById('status-filter').value;
+            const experienceFilter = document.getElementById('experience-filter').value;
+            
+            // Filter logic would go here
+            console.log('Filtering applicants:', { jobFilter, statusFilter, experienceFilter });
+        }
+
+        // Add filter event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            const filters = document.querySelectorAll('#job-filter, #status-filter, #experience-filter');
+            filters.forEach(filter => {
+                filter.addEventListener('change', filterApplicants);
+            });
+        });
+    </script>
+    <style>
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: #dbeafe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+        }
+
+        .activity-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-content p {
+            color: #64748b;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-time {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .applicants-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .applicants-filters select {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .applicant-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .applicant-info strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .applicant-info span {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .messages-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            height: 600px;
+        }
+
+        .messages-list {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow-y: auto;
+        }
+
+        .message-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .message-item:hover,
+        .message-item.active {
+            background: #f8fafc;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .message-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .message-content p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .message-time {
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        .message-chat {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .chat-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .chat-header span {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 1rem;
+            max-width: 70%;
+        }
+
+        .chat-message.sent {
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .chat-message p {
+            background: #f1f5f9;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            margin-bottom: 0.25rem;
+        }
+
+        .chat-message.sent p {
+            background: #2563eb;
+            color: white;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+        }
+
+        .coming-soon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .coming-soon-content {
+            text-align: center;
+            max-width: 500px;
+            padding: 2rem;
+        }
+
+        .icon-large {
+            font-size: 4rem;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon-content p {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #64748b;
+        }
+
+        .feature-list i {
+            color: #16a34a;
+        }
+
+        @media (max-width: 768px) {
+            .messages-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            
+            .applicants-filters {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>
