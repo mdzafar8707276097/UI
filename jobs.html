@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings - Gulf Jobs Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Gulf<span class="highlight">Jobs</span></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="jobs.html" class="nav-link active">Find Jobs</a></li>
+                <li><a href="post-job.html" class="nav-link">Post a Job</a></li>
+                <li><a href="login.html" class="nav-link login-btn">Login / Signup</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Find Your Dream Job</h1>
+            <p>Browse through thousands of job opportunities across the Gulf region</p>
+        </div>
+    </section>
+
+    <!-- Jobs Container -->
+    <div class="container">
+        <div class="jobs-container">
+            <!-- Filters Sidebar -->
+            <aside class="filters-sidebar">
+                <h3>Filter Jobs</h3>
+                
+                <div class="filter-group">
+                    <h3>Job Type</h3>
+                    <label>
+                        <input type="checkbox" name="job-type" value="full-time">
+                        Full-time
+                    </label>
+                    <label>
+                        <input type="checkbox" name="job-type" value="part-time">
+                        Part-time
+                    </label>
+                    <label>
+                        <input type="checkbox" name="job-type" value="contract">
+                        Contract
+                    </label>
+                    <label>
+                        <input type="checkbox" name="job-type" value="remote">
+                        Remote
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Location</h3>
+                    <label>
+                        <input type="checkbox" name="location" value="dubai">
+                        Dubai, UAE
+                    </label>
+                    <label>
+                        <input type="checkbox" name="location" value="riyadh">
+                        Riyadh, Saudi Arabia
+                    </label>
+                    <label>
+                        <input type="checkbox" name="location" value="doha">
+                        Doha, Qatar
+                    </label>
+                    <label>
+                        <input type="checkbox" name="location" value="kuwait">
+                        Kuwait City, Kuwait
+                    </label>
+                    <label>
+                        <input type="checkbox" name="location" value="muscat">
+                        Muscat, Oman
+                    </label>
+                    <label>
+                        <input type="checkbox" name="location" value="manama">
+                        Manama, Bahrain
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Industry</h3>
+                    <label>
+                        <input type="checkbox" name="industry" value="construction">
+                        Construction
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="healthcare">
+                        Healthcare
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="it">
+                        IT & Technology
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="engineering">
+                        Engineering
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="finance">
+                        Finance
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="admin">
+                        Administration
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Salary Range</h3>
+                    <input type="range" id="salary-range" min="5000" max="50000" value="15000">
+                    <span id="salary-display">AED 15,000+</span>
+                </div>
+            </aside>
+
+            <!-- Main Jobs Area -->
+            <main class="jobs-main">
+                <div class="jobs-header">
+                    <span class="results-count">Showing 1-10 of 2,340 jobs</span>
+                    <select class="sort-dropdown">
+                        <option value="relevance">Sort by Relevance</option>
+                        <option value="date">Sort by Date</option>
+                        <option value="salary">Sort by Salary</option>
+                        <option value="company">Sort by Company</option>
+                    </select>
+                </div>
+
+                <div class="job-list">
+                    <!-- Job Item 1 -->
+                    <article class="job-item" data-job-id="1">
+                        <div class="job-item-header">
+                            <div>
+                                <h3 class="job-item-title">Senior Software Engineer</h3>
+                                <p class="job-item-company">Tech Innovations LLC</p>
+                            </div>
+                            <span class="job-type">Full-time</span>
+                        </div>
+                        <div class="job-item-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Dubai, UAE</span>
+                            <span><i class="fas fa-dollar-sign"></i> AED 15,000 - 25,000</span>
+                            <span><i class="fas fa-briefcase"></i> IT & Technology</span>
+                        </div>
+                        <p class="job-item-description">
+                            We're looking for an experienced software engineer to join our dynamic team in Dubai. The ideal candidate will have 5+ years of experience in full-stack development and be proficient in React, Node.js, and cloud technologies.
+                        </p>
+                        <div class="job-item-footer">
+                            <span class="job-item-posted">Posted 2 days ago</span>
+                            <div>
+                                <button class="btn btn-secondary save-btn" onclick="saveJob(1)">
+                                    <i class="far fa-heart"></i> Save
+                                </button>
+                                <a href="job-details.html?id=1" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Job Item 2 -->
+                    <article class="job-item" data-job-id="2">
+                        <div class="job-item-header">
+                            <div>
+                                <h3 class="job-item-title">Construction Project Manager</h3>
+                                <p class="job-item-company">Gulf Construction Co.</p>
+                            </div>
+                            <span class="job-type">Full-time</span>
+                        </div>
+                        <div class="job-item-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</span>
+                            <span><i class="fas fa-dollar-sign"></i> SAR 18,000 - 28,000</span>
+                            <span><i class="fas fa-briefcase"></i> Construction</span>
+                        </div>
+                        <p class="job-item-description">
+                            Lead construction projects from inception to completion in major Saudi Arabia developments. Manage teams, budgets, and timelines while ensuring quality and safety standards are met.
+                        </p>
+                        <div class="job-item-footer">
+                            <span class="job-item-posted">Posted 1 day ago</span>
+                            <div>
+                                <button class="btn btn-secondary save-btn" onclick="saveJob(2)">
+                                    <i class="far fa-heart"></i> Save
+                                </button>
+                                <a href="job-details.html?id=2" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Job Item 3 -->
+                    <article class="job-item" data-job-id="3">
+                        <div class="job-item-header">
+                            <div>
+                                <h3 class="job-item-title">Registered Nurse</h3>
+                                <p class="job-item-company">Qatar Medical Center</p>
+                            </div>
+                            <span class="job-type">Full-time</span>
+                        </div>
+                        <div class="job-item-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Doha, Qatar</span>
+                            <span><i class="fas fa-dollar-sign"></i> QAR 12,000 - 16,000</span>
+                            <span><i class="fas fa-briefcase"></i> Healthcare</span>
+                        </div>
+                        <p class="job-item-description">
+                            Join our healthcare team providing excellent patient care in Qatar's premier medical facility. We're seeking a dedicated registered nurse with ICU experience.
+                        </p>
+                        <div class="job-item-footer">
+                            <span class="job-item-posted">Posted 3 days ago</span>
+                            <div>
+                                <button class="btn btn-secondary save-btn" onclick="saveJob(3)">
+                                    <i class="far fa-heart"></i> Save
+                                </button>
+                                <a href="job-details.html?id=3" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Job Item 4 -->
+                    <article class="job-item" data-job-id="4">
+                        <div class="job-item-header">
+                            <div>
+                                <h3 class="job-item-title">Financial Analyst</h3>
+                                <p class="job-item-company">Gulf Finance Group</p>
+                            </div>
+                            <span class="job-type">Full-time</span>
+                        </div>
+                        <div class="job-item-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Kuwait City, Kuwait</span>
+                            <span><i class="fas fa-dollar-sign"></i> KWD 1,200 - 1,800</span>
+                            <span><i class="fas fa-briefcase"></i> Finance</span>
+                        </div>
+                        <p class="job-item-description">
+                            Analyze financial data and create reports for investment decisions. Requires strong analytical skills and experience with financial modeling and forecasting.
+                        </p>
+                        <div class="job-item-footer">
+                            <span class="job-item-posted">Posted 4 days ago</span>
+                            <div>
+                                <button class="btn btn-secondary save-btn" onclick="saveJob(4)">
+                                    <i class="far fa-heart"></i> Save
+                                </button>
+                                <a href="job-details.html?id=4" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Job Item 5 -->
+                    <article class="job-item" data-job-id="5">
+                        <div class="job-item-header">
+                            <div>
+                                <h3 class="job-item-title">Civil Engineer</h3>
+                                <p class="job-item-company">Desert Engineering Solutions</p>
+                            </div>
+                            <span class="job-type">Full-time</span>
+                        </div>
+                        <div class="job-item-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Muscat, Oman</span>
+                            <span><i class="fas fa-dollar-sign"></i> OMR 1,500 - 2,200</span>
+                            <span><i class="fas fa-briefcase"></i> Engineering</span>
+                        </div>
+                        <p class="job-item-description">
+                            Design and oversee construction projects including roads, bridges, and buildings. Must have professional engineering license and 7+ years of experience.
+                        </p>
+                        <div class="job-item-footer">
+                            <span class="job-item-posted">Posted 5 days ago</span>
+                            <div>
+                                <button class="btn btn-secondary save-btn" onclick="saveJob(5)">
+                                    <i class="far fa-heart"></i> Save
+                                </button>
+                                <a href="job-details.html?id=5" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Job Item 6 -->
+                    <article class="job-item" data-job-id="6">
+                        <div class="job-item-header">
+                            <div>
+                                <h3 class="job-item-title">Administrative Assistant</h3>
+                                <p class="job-item-company">Bahrain Business Center</p>
+                            </div>
+                            <span class="job-type">Full-time</span>
+                        </div>
+                        <div class="job-item-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Manama, Bahrain</span>
+                            <span><i class="fas fa-dollar-sign"></i> BHD 800 - 1,200</span>
+                            <span><i class="fas fa-briefcase"></i> Administration</span>
+                        </div>
+                        <p class="job-item-description">
+                            Provide administrative support to executive team. Handle correspondence, scheduling, and office management. Strong organizational and communication skills required.
+                        </p>
+                        <div class="job-item-footer">
+                            <span class="job-item-posted">Posted 6 days ago</span>
+                            <div>
+                                <button class="btn btn-secondary save-btn" onclick="saveJob(6)">
+                                    <i class="far fa-heart"></i> Save
+                                </button>
+                                <a href="job-details.html?id=6" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>...</button>
+                    <button>234</button>
+                    <button><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Gulf<span class="highlight">Jobs</span></h3>
+                    <p>Your gateway to career opportunities in the Gulf region</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">Find Jobs</a></li>
+                        <li><a href="post-job.html">Post a Job</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@gulfjobs.com</li>
+                        <li><i class="fas fa-phone"></i> +971 4 123 4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gulf Jobs Portal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
