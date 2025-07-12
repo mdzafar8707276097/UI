@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulf Jobs - Connect Employers & Job Seekers</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Gulf Jobs</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#jobs" class="nav-link">Jobs</a></li>
+                    <li><a href="#employers" class="nav-link">Employers</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-auth">
+                    <a href="#" class="btn-secondary">Sign In</a>
+                    <a href="#" class="btn-primary">Sign Up</a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Find Your <span class="highlight">Dream Job</span><br>
+                    in the Gulf Region
+                </h1>
+                <p class="hero-subtitle">
+                    Connect with top employers across Saudi Arabia, UAE, Qatar, Kuwait, and Bahrain. 
+                    Your career journey starts here.
+                </p>
+                
+                <!-- Job Search Bar -->
+                <div class="search-container">
+                    <div class="search-bar">
+                        <div class="search-field">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="keywords" placeholder="Job title, keywords, or company">
+                        </div>
+                        <div class="search-field">
+                            <i class="fas fa-list"></i>
+                            <select id="category">
+                                <option value="">All Categories</option>
+                                <option value="construction">Construction</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="hospitality">Hospitality</option>
+                                <option value="admin">Administration</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="finance">Finance</option>
+                                <option value="education">Education</option>
+                                <option value="retail">Retail</option>
+                            </select>
+                        </div>
+                        <div class="search-field">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <select id="location">
+                                <option value="">All Locations</option>
+                                <option value="saudi-arabia">Saudi Arabia</option>
+                                <option value="uae">United Arab Emirates</option>
+                                <option value="qatar">Qatar</option>
+                                <option value="kuwait">Kuwait</option>
+                                <option value="bahrain">Bahrain</option>
+                                <option value="oman">Oman</option>
+                            </select>
+                        </div>
+                        <button class="search-btn" onclick="searchJobs()">
+                            <i class="fas fa-search"></i>
+                            Search Jobs
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Popular Keywords -->
+                <div class="popular-keywords">
+                    <span class="keywords-label">Popular searches:</span>
+                    <div class="keywords-list">
+                        <span class="keyword-tag">Engineer</span>
+                        <span class="keyword-tag">Nurse</span>
+                        <span class="keyword-tag">Teacher</span>
+                        <span class="keyword-tag">Manager</span>
+                        <span class="keyword-tag">Driver</span>
+                        <span class="keyword-tag">Accountant</span>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="cta-buttons">
+                    <a href="#" class="btn-primary-large" onclick="findJobs()">
+                        <i class="fas fa-search"></i>
+                        Find Jobs
+                    </a>
+                    <a href="#" class="btn-secondary-large" onclick="postJob()">
+                        <i class="fas fa-plus"></i>
+                        Post a Job
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-graphic">
+                    <div class="graphic-element"></div>
+                    <div class="floating-card card-1">
+                        <i class="fas fa-briefcase"></i>
+                        <div>
+                            <h4>50,000+</h4>
+                            <p>Active Jobs</p>
+                        </div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>100,000+</h4>
+                            <p>Job Seekers</p>
+                        </div>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-building"></i>
+                        <div>
+                            <h4>5,000+</h4>
+                            <p>Companies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Job Categories -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Browse by Category</h2>
+                <p>Find jobs in your preferred industry across the Gulf region</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterByCategory('construction')">
+                    <div class="category-icon construction">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Construction</h3>
+                    <p>12,450 jobs available</p>
+                    <span class="category-arrow">→</span>
+                </div>
+                <div class="category-card" onclick="filterByCategory('healthcare')">
+                    <div class="category-icon healthcare">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Healthcare</h3>
+                    <p>8,230 jobs available</p>
+                    <span class="category-arrow">→</span>
+                </div>
+                <div class="category-card" onclick="filterByCategory('hospitality')">
+                    <div class="category-icon hospitality">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Hospitality</h3>
+                    <p>6,780 jobs available</p>
+                    <span class="category-arrow">→</span>
+                </div>
+                <div class="category-card" onclick="filterByCategory('admin')">
+                    <div class="category-icon admin">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Administration</h3>
+                    <p>9,140 jobs available</p>
+                    <span class="category-arrow">→</span>
+                </div>
+                <div class="category-card" onclick="filterByCategory('engineering')">
+                    <div class="category-icon engineering">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Engineering</h3>
+                    <p>15,320 jobs available</p>
+                    <span class="category-arrow">→</span>
+                </div>
+                <div class="category-card" onclick="filterByCategory('finance')">
+                    <div class="category-icon finance">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Finance</h3>
+                    <p>7,890 jobs available</p>
+                    <span class="category-arrow">→</span>
+                </div>
+                <div class="category-card" onclick="filterByCategory('education')">
+                    <div class="category-icon education">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education</h3>
+                    <p>4,560 jobs available</p>
+                    <span class="category-arrow">→</span>
+                </div>
+                <div class="category-card" onclick="filterByCategory('retail')">
+                    <div class="category-icon retail">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Retail</h3>
+                    <p>5,210 jobs available</p>
+                    <span class="category-arrow">→</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Employers -->
+    <section class="employers" id="employers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted by Leading Companies</h2>
+                <p>Join thousands of companies who trust Gulf Jobs to find the best talent</p>
+            </div>
+            <div class="employers-grid">
+                <div class="employer-logo">
+                    <img src="https://via.placeholder.com/200x80/f8f9fa/6c757d?text=ARAMCO" alt="Saudi Aramco">
+                </div>
+                <div class="employer-logo">
+                    <img src="https://via.placeholder.com/200x80/f8f9fa/6c757d?text=ADNOC" alt="ADNOC">
+                </div>
+                <div class="employer-logo">
+                    <img src="https://via.placeholder.com/200x80/f8f9fa/6c757d?text=SABIC" alt="SABIC">
+                </div>
+                <div class="employer-logo">
+                    <img src="https://via.placeholder.com/200x80/f8f9fa/6c757d?text=QATAR+AIRWAYS" alt="Qatar Airways">
+                </div>
+                <div class="employer-logo">
+                    <img src="https://via.placeholder.com/200x80/f8f9fa/6c757d?text=EMIRATES" alt="Emirates">
+                </div>
+                <div class="employer-logo">
+                    <img src="https://via.placeholder.com/200x80/f8f9fa/6c757d?text=ETIHAD" alt="Etihad Airways">
+                </div>
+                <div class="employer-logo">
+                    <img src="https://via.placeholder.com/200x80/f8f9fa/6c757d?text=ALMARAI" alt="Almarai">
+                </div>
+                <div class="employer-logo">
+                    <img src="https://via.placeholder.com/200x80/f8f9fa/6c757d?text=EMAAR" alt="Emaar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Success Stories</h2>
+                <p>Hear from job seekers and employers who found success through Gulf Jobs</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"I found my dream job as a Software Engineer in Dubai within 2 weeks of signing up. The platform made the entire process seamless and professional."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://via.placeholder.com/50x50/007bff/ffffff?text=AH" alt="Ahmed Hassan">
+                            </div>
+                            <div class="author-info">
+                                <h4>Ahmed Hassan</h4>
+                                <p>Software Engineer at TechCorp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"As an HR manager, Gulf Jobs helped us find qualified candidates quickly. The quality of applications we received was outstanding."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://via.placeholder.com/50x50/28a745/ffffff?text=SA" alt="Sarah Abdullah">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Abdullah</h4>
+                                <p>HR Manager at Gulf Construction Co.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The healthcare job opportunities here are incredible. I secured a position as a Registered Nurse in Qatar with excellent benefits."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://via.placeholder.com/50x50/dc3545/ffffff?text=MR" alt="Maria Rodriguez">
+                            </div>
+                            <div class="author-info">
+                                <h4>Maria Rodriguez</h4>
+                                <p>Registered Nurse at Doha Medical Center</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Gulf Jobs</span>
+                    </div>
+                    <p>Your trusted partner for finding the best job opportunities across the Gulf region. Connect with top employers and advance your career today.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>For Job Seekers</h3>
+                    <ul>
+                        <li><a href="#">Browse Jobs</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Salary Guide</a></li>
+                        <li><a href="#">Create Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>For Employers</h3>
+                    <ul>
+                        <li><a href="#">Post Jobs</a></li>
+                        <li><a href="#">Find Candidates</a></li>
+                        <li><a href="#">Employer Resources</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Company Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gulf Jobs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
